@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 
 async function getDatabase() {
     const db = await open({
-        filename: './mydatabase.db',
+        filename: './app.db',
         driver: sqlite3.Database,
     });
 
@@ -18,6 +18,7 @@ async function getDatabase() {
     CREATE TABLE IF NOT EXISTS items (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
+      description TEXT NOT NULL,
       price REAL NOT NULL,
       image TEXT
     );
@@ -43,9 +44,9 @@ async function getUserById(id) {
     return db.get('SELECT * FROM users WHERE id = ?', [id]);
 }
 
-async function insertItem(title, price, image) {
+async function insertItem(title, description, price, image) {
     const db = await getDatabase();
-    const result = await db.run('INSERT INTO items (title, price, image) VALUES (?, ?, ?)', [title, price, image]);
+    const result = await db.run('INSERT INTO items (title, description, price, image) VALUES (?, ?, ?, ?)', [title, description, price, image]);
     return getItemById(result.lastID);
 }
 

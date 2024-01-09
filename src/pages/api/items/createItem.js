@@ -6,15 +6,15 @@ export default authMiddleware(async function handler(req, res) {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  const { title, price, image } = req.body;
+  const { title, description, price, image } = req.body;
 
-  if (!title || !price) {
+  if (!title || !description || !price || !image) {
     return res.status(400).json({ message: 'Name and price are required' });
   }
 
   try {
-    const result = await insertItem(title, price, image);
-    
+    const result = await insertItem(title, description, price, image);
+
     res.status(201).json({ message: result });
   } catch (error) {
     console.log(error)

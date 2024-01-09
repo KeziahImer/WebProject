@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.2.9",
     "bcrypt": "^5.1.1",
+    "framer-motion": "^10.17.12",
     "jsonwebtoken": "^9.0.2",
     "next": "14.0.3",
     "react": "^18",

@@ -23,7 +23,7 @@ const NavBar = () => {
     return (
         <nav style={{...navBarStyle, backgroundColor: scrolling ? '#000' : 'transparent'}}>
             <div style={logoStyle}>
-                <img src="./gdLogo.png" alt="Logo" style={{width: "30%"}}/>
+                <img src="./gdLogo.png" alt="Logo" style={{width: "10%"}}/>
             </div>
             <ul style={navListStyle}>
                 <li style={{ marginRight: '20px' }} onClick={() => router.push('/')}>

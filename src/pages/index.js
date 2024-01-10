@@ -1,13 +1,16 @@
-import NavBar from '@/components/Navbar/Navbar';
 import React from 'react';
+import Geremie from "@/pages/Geremie";
 
 const Home = () => {
-  return (
-    <div>
-      <NavBar />
-      <h1>Gérémie</h1>
-    </div>
-  );
+    return (
+        <div>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+                  rel="stylesheet"/>
+            <Geremie/>
+        </div>
+    );
 };
 
 export default Home;

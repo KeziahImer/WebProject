@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import styles from '@/styles/Navbar.module.css';
 
 const NavBar = () => {
     const router = useRouter();
@@ -21,22 +22,24 @@ const NavBar = () => {
     }, []);
 
     return (
-        <nav style={{...navBarStyle, backgroundColor: scrolling ? '#000' : 'transparent'}}>
-            <div style={logoStyle}>
-                <img src="./gdLogo.png" alt="Logo" style={{width: "10%"}}/>
-            </div>
-            <ul style={navListStyle}>
-                <li style={{ marginRight: '20px' }} onClick={() => router.push('/')}>
+        <div className={styles.navbar}>
+            <nav style={{...navBarStyle, backgroundColor: scrolling ? '#000' : 'transparent'}}>
+                <div style={logoStyle}>
+                  <img src="./gdLogo.png" alt="Logo" style={{width: "10%"}}/>
+                </div>
+                <ul style={navListStyle}>
+                   <li style={{ marginRight: '20px' }} onClick={() => router.push('/')}>
                     Geremie Degeilh
-                </li>
-                <li style={{ marginRight: '20px' }} onClick={() => router.push('/winwatt')}>
+                   </li>
+                   <li style={{ marginRight: '20px' }} onClick={() => router.push('/winwatt')}>
                     WinWatt
-                </li>
-                <li style={{ marginRight: '20px' }} onClick={() => router.push('/veloclandestin')}>
+                   </li>
+                    <li style={{ marginRight: '20px' }} onClick={() => router.push('/veloclandestin')}>
                     Vélo Clandestin
-                </li>
-            </ul>
-        </nav>
+                 </li>
+               </ul>
+          </nav>
+        </div>
     );
 };
 
@@ -64,7 +67,6 @@ const navListStyle = {
     display: 'flex',
     flexDirection: 'row',
     color: 'white',
-    fontFamily: 'Roboto',
     fontWeight: 'bold',
 };
 

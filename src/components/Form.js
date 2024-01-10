@@ -88,10 +88,27 @@ const Form = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Ajoutez ici la logique pour traiter les données du formulaire
-        console.log('Données soumises :', formData);
+    const handleSubmit = async e => {
+        // e.preventDefault();
+        console.log('CLIC');
+        try {
+            await fetch('/api/sendMail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    nom: formData.nom,
+                    prenom: formData.prenom,
+                    email: formData.email,
+                    telephone: formData.telephone,
+                    sujet: formData.sujet,
+                    description: formData.description
+                })
+            })
+        } catch (error) {
+            console.log(error)
+        }
     };
 
     return (

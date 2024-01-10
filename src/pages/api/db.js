@@ -19,6 +19,7 @@ async function getDatabase() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       description TEXT NOT NULL,
+      type TEXT NOT NULL,
       price REAL NOT NULL,
       image TEXT
     );
@@ -44,9 +45,9 @@ async function getUserById(id) {
     return db.get('SELECT * FROM users WHERE id = ?', [id]);
 }
 
-async function insertItem(title, description, price, image) {
+async function insertItem(title, description, type, price, image) {
     const db = await getDatabase();
-    const result = await db.run('INSERT INTO items (title, description, price, image) VALUES (?, ?, ?, ?)', [title, description, price, image]);
+    const result = await db.run('INSERT INTO items (title, description, type, price, image) VALUES (?, ?, ?, ?, ?)', [title, description, type, price, image]);
     return getItemById(result.lastID);
 }
 
@@ -60,9 +61,9 @@ async function getItemById(id) {
     return db.get('SELECT * FROM items where id = ?', [id]);
 }
 
-async function updateItem(id, title, description, price, image) {
+async function updateItem(id, title, description, type, price, image) {
     const db = await getDatabase();
-    const result = await db.run('UPDATE items SET title = ?, description = ?, price = ?, image = ? WHERE id = ?', [title, description, price, image, id]);
+    const result = await db.run('UPDATE items SET title = ?, description = ?, type = ?, price = ?, image = ? WHERE id = ?', [title, description, type, price, image, id]);
     console.log(result)
     return getItemById(id);
 }

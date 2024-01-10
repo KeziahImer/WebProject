@@ -29,7 +29,21 @@ const WinWatt = () => {
     <div>
       {/* <NavBar /> */}
       <h1>WinWatt</h1>
-      {items.map(item => <Item item={item}/>)}
+      {items.map(item => {
+        if (item.type == "Selle")
+          return <Item item={item}/>
+        }
+      )}
+      {items.map(item => {
+        if (item.type == "Pédale")
+          return <Item item={item}/>
+        }
+      )}
+      {items.map(item => {
+        if (item.type == "Potence")
+          return <Item item={item}/>
+        }
+      )}
       {authToken && authToken != '' && (
         <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => router.push('/winwatt/createItem')}>
           <FontAwesomeIcon icon={faPlus} style={{ marginRight: '8px' }} />

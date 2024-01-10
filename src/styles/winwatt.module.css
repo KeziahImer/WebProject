@@ -1,9 +1,42 @@
-/* Modifiez ceci dans votre fichier CSS */
 .wwBody {
     width: 100%;
-    min-height: 100vh; /* Utilisez 100vh pour 100% de la hauteur de la vue (écran) */
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     object-fit: cover;
-    font-family: "Roboto", sans-serif   ;
+    font-family: "Poppins", sans-serif;
+}
+
+.wwHeader {
+    background: linear-gradient(180deg, #F5F5F5 0%, #999 100%);
+    -webkit-background-clip: text; /* Pour les navigateurs WebKit (Chrome, Safari, etc.) */
+    background-clip: text; /* Pour les autres navigateurs */
+    color: transparent;
+    font-size: 70px;
+    width: 1050px;
+    text-align: center;
+    margin: 150px auto 0;
+}
+
+.wwTitle {
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 150px;
+    margin-left: 100px;
+    text-decoration: underline;
+}
+
+.wwSection {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 100;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.wwItem {
+    display: flex;
+    flex-direction: row;
 }

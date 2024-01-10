@@ -6,7 +6,7 @@ import Carousel from "./Carousel";
 import Form from "./Form";
 const Geremie = () => {
     return (
-        <div>
+        <div className={styles.body}>
             <Navbar/>
             <div style={{width: '90vw', height: '100vh'}}>
                 <Image src="/Background.png" alt="Background" layout="fill" objectFit="cover"/>

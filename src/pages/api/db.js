@@ -60,9 +60,9 @@ async function getItemById(id) {
     return db.get('SELECT * FROM items where id = ?', [id]);
 }
 
-async function updateItem(id, title, price, image) {
+async function updateItem(id, title, description, price, image) {
     const db = await getDatabase();
-    const result = await db.run('UPDATE items SET title = ?, price = ?, image = ? WHERE id = ?', [title, price, image, id]);
+    const result = await db.run('UPDATE items SET title = ?, description = ?, price = ?, image = ? WHERE id = ?', [title, description, price, image, id]);
     console.log(result)
     return getItemById(id);
 }

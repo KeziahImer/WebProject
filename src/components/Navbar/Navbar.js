@@ -20,23 +20,19 @@ const NavBar = () => {
         };
     }, []);
 
-    const navigateTo = (path) => {
-        router.push(path);
-    };
-
     return (
         <nav style={{...navBarStyle, backgroundColor: scrolling ? '#000' : 'transparent'}}>
             <div style={logoStyle}>
                 <img src="./gdLogo.png" alt="Logo" style={{width: "30%"}}/>
             </div>
             <ul style={navListStyle}>
-                <li style={{ marginRight: '20px' }} onClick={() => navigateTo('/Geremie')}>
+                <li style={{ marginRight: '20px' }} onClick={() => router.push('/')}>
                     Geremie Degeilh
                 </li>
-                <li style={{ marginRight: '20px' }} onClick={() => navigateTo('/winwatt')}>
+                <li style={{ marginRight: '20px' }} onClick={() => router.push('/winwatt')}>
                     WinWatt
                 </li>
-                <li style={{ marginRight: '20px' }} onClick={() => navigateTo('/veloclandestin')}>
+                <li style={{ marginRight: '20px' }} onClick={() => router.push('/veloclandestin')}>
                     Vélo Clandestin
                 </li>
             </ul>
@@ -49,7 +45,7 @@ const navBarStyle = {
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1000, // Pour assurer que la barre de navigation est au-dessus du reste du contenu
+    zIndex: 1000,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',

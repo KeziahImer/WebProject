@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Input, Button } from "@nextui-org/react";
 import { useRouter } from 'next/router';
 
-const createItem = () => {
+const UpdateItem = () => {
+  const [id, setId] = useState(0);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState("");
   const router = useRouter();
+  const { item } = router.query;
 
-  const create = async () => {
+  useEffect(() => {
+    const parsedItem = JSON.parse(item);
+    setId(parsedItem.id)
+    setTitle(parsedItem.title);
+    setDescription(parsedItem.description);
+    setPrice(parsedItem.price);
+    setImage(parsedItem.image);
+  }, []);
+
+  const update = async () => {
     try {
-      const response = await fetch('/api/items/createItem', {
-        method: 'POST',
+      console.log(item.id)
+      const response = await fetch(`/api/items/updateItem/${id}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           Authorization: "Bearer " + localStorage.getItem("authToken")
@@ -35,9 +47,9 @@ const createItem = () => {
       <Input type="description" label="Description" placeholder="Entrez la description" value={description} onChange={value => setDescription(value.target.value)} />
       <Input type="price" label="Prix" placeholder="Entrez le prix" value={price} onChange={value => setPrice(value.target.value)} />
       <Input label="Image" placeholder="Entrez le lien de l'image" value={image} onChange={value => setImage(value.target.value)} />
-      <Button color="primary" onClick={create} />
+      <Button color="primary" onClick={update} />
     </div>
   );
 };
 
-export default createItem;
+export default UpdateItem;

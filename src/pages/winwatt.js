@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Item from '@/components/Item/Item';
 import { useRouter } from 'next/router';
+import styles from '@/styles/winwatt.module.css';
 
 const WinWatt = () => {
   const [items, setItems] = useState([]);
@@ -26,8 +27,8 @@ const WinWatt = () => {
   }, [items]);
   
   return (
-    <div>
-      {/* <NavBar /> */}
+      <div className={styles.wwBody} style={{ backgroundColor: '#171717' }}>
+      <NavBar />
       <h1>WinWatt</h1>
       {items.map(item => {
         if (item.type == "Selle")

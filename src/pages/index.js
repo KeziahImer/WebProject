@@ -1,5 +1,5 @@
 import React from 'react';
-import Geremie from "@/pages/Geremie";
+import Geremie from "@/components/Geremie";
 
 const Home = () => {
     return (

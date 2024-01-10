@@ -31,19 +31,32 @@ const Item = ({ item }) => {
   }
 
   const itemStyle = {
-    border: '1px solid #ddd',
+    border: '0px solid #ddd',
     padding: '16px',
     margin: '16px',
-    borderRadius: '8px',
+    borderRadius: '40px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
+    width: '165px',
+    height: "150px",
+    dropShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    background: "linear-gradient(249deg, #3D3D3D 57.39%, #212121 137.7%)",
   };
 
   const titleStyle = {
-    fontSize: '1.5rem',
+    fontSize: '1rem',
+    fontWeight: 300,
     marginBottom: '8px',
-    color: '#333',
+    color: '#FFFFFF',
   };
+
+  const titleStyle2 = {
+    fontSize: '1rem',
+    fontWeight: 200,
+    marginBottom: '8px',
+    color: '#ADADAD',
+  };
+
 
   const descriptionStyle = {
     marginBottom: '8px',
@@ -57,10 +70,11 @@ const Item = ({ item }) => {
 
   return (
     <div style={itemStyle}>
+      <img src={item.image} alt={item.title} width={150} height={80} />
       <h2 style={titleStyle}>{item.title}</h2>
-      <p style={descriptionStyle}>{item.description}</p>
-      <p style={priceStyle}>Price: {item.price}</p>
-      <img src={item.image} alt={item.title} width={300} height={200} />
+      {/*<p style={descriptionStyle}>{item.description}</p>*/}
+      {/*<p style={priceStyle}>Price: {item.price}</p>*/}
+      <p style={titleStyle2}>Voir plus </p>
       {authToken && authToken != '' && (
         <>
           <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => {

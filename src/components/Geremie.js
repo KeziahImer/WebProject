@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from "next/image";
 import styles from "../styles/gd.module.css";
-import Navbar from "../components/Navbar/Navbar";
-import Carousel from "../components/Carousel";
-import Form from "../components/Form";
+import Navbar from "./Navbar/Navbar";
+import Carousel from "./Carousel";
+import Form from "./Form";
 const Geremie = () => {
     return (
-        <div className={styles.body}>
+        <div>
             <Navbar/>
             <div style={{width: '90vw', height: '100vh'}}>
                 <Image src="/Background.png" alt="Background" layout="fill" objectFit="cover"/>
@@ -70,7 +70,7 @@ const Geremie = () => {
                                     alt="Description de l'image"
                                     style={{
                                         width: '70px',
-                                    }}  // Ajustez la taille de l'image selon vos besoins
+                                    }}
                                     onClick={""}
                                 />
                             </a>
@@ -80,7 +80,7 @@ const Geremie = () => {
                                     alt="Description de l'image"
                                     style={{
                                         width: '70px',
-                                    }}  // Ajustez la taille de l'image selon vos besoins
+                                    }}
                                     onClick={""}
                                 />
                             </a>

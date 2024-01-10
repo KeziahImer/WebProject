@@ -1,0 +1,9 @@
+/* Modifiez ceci dans votre fichier CSS */
+.wwBody {
+    width: 100%;
+    min-height: 100vh; /* Utilisez 100vh pour 100% de la hauteur de la vue (écran) */
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+    font-family: "Roboto", sans-serif   ;
+}

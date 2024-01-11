@@ -39,4 +39,9 @@
 .wwItem {
     display: flex;
     flex-direction: row;
+    margin-left: 70px;
+}
+
+.wwP {
+    text-decoration: underline;
 }

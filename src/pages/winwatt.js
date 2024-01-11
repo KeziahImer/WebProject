@@ -28,29 +28,49 @@ const WinWatt = () => {
   
   return (
       <div className={styles.wwBody} style={{ backgroundColor: '#171717' }}>
-      <NavBar />
-      <h1>WinWatt</h1>
-      {items.map(item => {
-        if (item.type == "Selle")
-          return <Item item={item}/>
-        }
-      )}
-      {items.map(item => {
-        if (item.type == "Pédale")
-          return <Item item={item}/>
-        }
-      )}
-      {items.map(item => {
-        if (item.type == "Potence")
-          return <Item item={item}/>
-        }
-      )}
-      {authToken && authToken != '' && (
-        <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => router.push('/winwatt/createItem')}>
-          <FontAwesomeIcon icon={faPlus} style={{ marginRight: '8px' }} />
-          Créer un nouvel élément
-        </button>
-      )}
+        <NavBar />
+        <div className={styles.wwHeader}>
+          <h1>Now You Can WinWatt</h1>
+        </div>
+        <div className={styles.wwTitle}>
+            <h2>Tout les produits</h2>
+        </div>
+        <div className={styles.wwSection}>
+          <p className={styles.wwP}>Selle</p>
+        </div>
+        <div className={styles.wwItem}>
+            {items.map(item => {
+              if (item.type === "Selle")
+                return <Item item={item}/>
+              }
+            )}
+        </div>
+        <div className={styles.wwSection}>
+          <p className={styles.wwP}>Pédale</p>
+        </div>
+        <div className={styles.wwItem}>
+            {items.map(item => {
+              if (item.type === "Pédale")
+                return <Item item={item}/>
+              }
+            )}
+      </div>
+        <div className={styles.wwSection}>
+          <p className={styles.wwP}>Potence</p>
+        </div>
+        <div className={styles.wwItem}>
+            {items.map(item => {
+              if (item.type === "Potence")
+                return <Item item={item}/>
+              }
+            )}
+        </div>
+            {authToken && authToken !== '' && (
+              <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => router.push('/winwatt/createItem')}>
+                <FontAwesomeIcon icon={faPlus} style={{ marginRight: '8px' }} />
+                Créer un nouvel élément
+              </button>
+            )}
     </div>
   );
 };

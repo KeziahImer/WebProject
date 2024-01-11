@@ -30,6 +30,14 @@ const Item = ({ item }) => {
     }
   }
 
+  const handleViewMore = () => {
+    router.push({
+      pathname: '/winwattItem',
+      query: { item: JSON.stringify(item) },
+    });
+  };
+
+
   const itemStyle = {
     border: '0px solid #ddd',
     padding: '16px',
@@ -54,6 +62,7 @@ const Item = ({ item }) => {
     fontSize: '1rem',
     fontWeight: 200,
     marginBottom: '8px',
+    textDecoration: "underline",
     color: '#ADADAD',
   };
 
@@ -69,28 +78,28 @@ const Item = ({ item }) => {
   };
 
   return (
-    <div style={itemStyle}>
-      <img src={item.image} alt={item.title} width={150} height={80} />
-      <h2 style={titleStyle}>{item.title}</h2>
-      {/*<p style={descriptionStyle}>{item.description}</p>*/}
-      {/*<p style={priceStyle}>Price: {item.price}</p>*/}
-      <p style={titleStyle2}>Voir plus </p>
-      {authToken && authToken != '' && (
-        <>
-          <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => {
-             router.push({
-              pathname: '/winwatt/updateItem',
-              query: { item: JSON.stringify(item) },
-            });
-          }}>
-            <FontAwesomeIcon icon={faEdit} />
-          </button>
-          <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => deleteItem(item.id)}>
-            <FontAwesomeIcon icon={faTrash} style={{ color: 'red' }} />
-          </button>
-        </>
-      )}
-    </div>
+      <div style={itemStyle}>
+        <img src={item.image} alt={item.title} width={150} height={80} />
+        <h2 style={titleStyle}>{item.title}</h2>
+        {/*<p style={descriptionStyle}>{item.description}</p>*/}
+        {/*<p style={priceStyle}>Price: {item.price}</p>*/}
+        <p style={titleStyle2} onClick={handleViewMore}>Voir plus</p>
+        {authToken && authToken !== '' && (
+            <>
+              <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => {
+                router.push({
+                  pathname: '/winwatt/updateItem',
+                  query: { item: JSON.stringify(item) },
+                });
+              }}>
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
+              <button style={{ cursor: 'pointer', background: 'transparent' }} onClick={() => deleteItem(item.id)}>
+                <FontAwesomeIcon icon={faTrash} style={{ color: 'red' }} />
+              </button>
+            </>
+        )}
+      </div>
   );
 };
 

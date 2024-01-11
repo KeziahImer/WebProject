@@ -1,12 +1,14 @@
+/* createItem.module.css */
+
 .container {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 40px;
     border-radius: 8px;
     max-width: 400px;
+    margin: auto;
     text-align: center;
-    margin: 20vh auto auto;
-    font-family: "Roboto", sans-serif;
+    margin-top: 10vh;
 }
 
 .inputcontainer {
@@ -15,12 +17,32 @@
 
 .inputcontainer label {
     display: block;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 5px;
     color: #333;
 }
 
 .inputcontainer input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.selectcontainer {
+    margin-bottom: 20px;
+}
+
+.selectcontainer label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.selectcontainer select {
     width: 100%;
     padding: 12px;
     box-sizing: border-box;

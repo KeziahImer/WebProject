@@ -1,6 +1,9 @@
+// Login.jsx
+
 import React, { useState } from 'react';
 import { Input, Button } from "@nextui-org/react";
 import { useRouter } from 'next/router';
+import styles from './login.module.css'; // Importe le fichier CSS module
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -29,11 +32,19 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <Input type="username" label="Nom d'utilisateur" placeholder="Entrez le nom d'utilisateur" value={username} onChange={value => setUsername(value.target.value)} />
-      <Input type="password" label="Mot de passe" placeholder="Entrez le mot de passe" value={password} onChange={value => setPassword(value.target.value)} />
-      <Button color="primary" onClick={login} />
-    </div>
+      <div className={styles.container}>
+        <div className={styles.inputcontainer}>
+          <label>Nom d utilisateur</label>
+          <Input type="username" placeholder="Entrez le nom d'utilisateur" value={username} onChange={value => setUsername(value.target.value)} />
+        </div>
+        <div className={styles.inputcontainer}>
+          <label>Mot de passe</label>
+          <Input type="password" placeholder="Entrez le mot de passe" value={password} onChange={value => setPassword(value.target.value)} />
+        </div>
+        <div className={styles.buttoncontainer}>
+          <Button color="primary" onClick={login}>Connexion</Button>
+        </div>
+      </div>
   );
 };
 

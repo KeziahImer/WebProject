@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Input, Button, Select, SelectItem } from "@nextui-org/react";
 import { useRouter } from 'next/router';
+import styles from '@/styles/updateItem.module.css';
 
 const UpdateItem = () => {
   const [id, setId] = useState(0);
@@ -44,22 +45,35 @@ const UpdateItem = () => {
   }
 
   return (
-    <div>
-      <Input type="title" label="Titre" placeholder="Entrez le titre" value={title} onChange={value => setTitle(value.target.value)} />
-      <Input type="description" label="Description" placeholder="Entrez la description" value={description} onChange={value => setDescription(value.target.value)} />
-      <Select label="Sélectionner le type" onChange={value => setType(types[value.target.value[value.target.value.length - 1]])}>
-        {["Selle", "Pédale", "Potence"].map(item => {
-          return (
-            <SelectItem>
-              {item}
-            </SelectItem>
-          )
-        })}
-      </Select>
-      <Input type="price" label="Prix" placeholder="Entrez le prix" value={price} onChange={value => setPrice(value.target.value)} />
-      <Input label="Image" placeholder="Entrez le lien de l'image" value={image} onChange={value => setImage(value.target.value)} />
-      <Button color="primary" onClick={update} />
-    </div>
+      <div className={styles.container}>
+        <div className={styles.inputcontainer}>
+          <label>Titre</label>
+          <Input type="title" placeholder="Entrer le titre" value={title} onChange={value => setTitle(value.target.value)} />
+        </div>
+        <div className={styles.inputcontainer}>
+          <label>Description</label>
+          <Input type="description" placeholder="Entrer la description" value={description} onChange={value => setDescription(value.target.value)} />
+        </div>
+        <div className={styles.selectcontainer}>
+          <label>Sélectionner le type</label>
+          <Select onChange={value => setType(types[value.target.value[value.target.value.length - 1]])}>
+            {types.map(item => (
+                <SelectItem key={item}>{item}</SelectItem>
+            ))}
+          </Select>
+        </div>
+        <div className={styles.inputcontainer}>
+          <label>Prix</label>
+          <Input type="price" placeholder="Entrer le prix" value={price} onChange={value => setPrice(value.target.value)} />
+        </div>
+        <div className={styles.inputcontainer}>
+          <label>Image</label>
+          <Input placeholder="Entrer le lien de l'image" value={image} onChange={value => setImage(value.target.value)} />
+        </div>
+        <div className={styles.buttoncontainer}>
+          <Button color="primary" onClick={update}>Modifier</Button>
+        </div>
+      </div>
   );
 };
 

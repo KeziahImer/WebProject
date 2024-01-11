@@ -21,24 +21,35 @@ const NavBar = () => {
         };
     }, []);
 
+    const getLogoPath = () => {
+        const path = router.pathname;
+        if (path === '/winwatt') {
+            return './winwatt.png';
+        } else if (path === '/veloclandestin') {
+            return './winwatt.png';
+        } else {
+            return './gdLogo.png';
+        }
+    };
+
     return (
         <div className={styles.navbar}>
             <nav style={{...navBarStyle, backgroundColor: scrolling ? '#000' : 'transparent'}}>
                 <div style={logoStyle}>
-                  <img src="./gdLogo.png" alt="Logo" style={{width: "10%"}}/>
+                    <img src={getLogoPath()} alt="Logo" style={{width: "10%"}}/>
                 </div>
                 <ul style={navListStyle}>
-                   <li style={{ marginRight: '20px' }} onClick={() => router.push('/')}>
-                    Geremie Degeilh
-                   </li>
-                   <li style={{ marginRight: '20px' }} onClick={() => router.push('/winwatt')}>
-                    WinWatt
-                   </li>
+                    <li style={{ marginRight: '20px' }} onClick={() => router.push('/')}>
+                        Geremie Degeilh
+                    </li>
+                    <li style={{ marginRight: '20px' }} onClick={() => router.push('/winwatt')}>
+                        WinWatt
+                    </li>
                     <li style={{ marginRight: '20px' }} onClick={() => router.push('/veloclandestin')}>
-                    Vélo Clandestin
-                 </li>
-               </ul>
-          </nav>
+                        Vélo Clandestin
+                    </li>
+                </ul>
+            </nav>
         </div>
     );
 };
